@@ -1,5 +1,24 @@
 ---
+import '../styles/global.css';
 
+const pageTitle = "The Hell is a 'Paca'?";
+
+const identity = {
+  firstName: "Tanner",
+  lastName: "Tucci",
+  country: "United States",
+  occupation: "Sound Technician/Web Designer",
+  hobbies: ["Punk Music", "Tattoo Sketching", "and A little too much Video Games"],
+};
+
+
+const skillColor = "lightblue";
+const fontWeight = "bold";
+const textCase = "uppercase";
+const skills = ["HTML", "CSS", "JavaScript", "Java", "C#", "C++", "Blender", "Astro", "Writing Docs", "Figma"];
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,20 +27,29 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Paca Trial Site : About</title>
+        <title>{pageTitle}</title>
+        <style define:vars={{skillColor, fontWeight, textCase}}>
+            h1 {
+              color: purple;
+              font-size: 4rem;
+            }
+            .skill {
+                color: var(--skillColor);
+                font-weight: var(--fontWeight);
+                text-transform: var(--textCase);
+          </style>
 	</head>
 	<body>
         <body>
             <!-- NAV -->
             <a href="/">Home</a>
-            <a href="/about/">About</a>
+            <a href="/about/">{pageTitle}</a>
             <a href="/blog/">Blog</a>
           
-<h1>About Me</h1>
-<h2>... and my new Astro site!</h2>
-            <h1>Paca Astro Trial</h1>
-            <h1>Some Punk</h1>
-            <h2>'13 Stitches ~ NOFX'</h2>
+            <h1>{pageTitle}</h1>
+
+            <h2>But First, Some Punk</h2>
+            <h3>'13 Stitches ~ NOFX'</h3>
           
             <p>The first time I saw The Descendents
                 They were the fastest band I'd ever seen
@@ -49,6 +77,13 @@
                     Before DRI played 50 lousy songs
                     My blood stained shirt smelled of clove cigarettes
                     But it sure looked pretty cool after a wash</p>
+                    
+            <h2>Anywho who be me?</h2>
+            <p>I'm a little punk rocker turned Front End Web Deisgner from bellevue </p>
+                    <p>My skills are:</p>
+<ul>
+  {skills.map((skill) => <li class="skill">{skill}</li>)}
+</ul>
           </body>
 	</body>
 </html>
